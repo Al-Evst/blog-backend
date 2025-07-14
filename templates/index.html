@@ -24,6 +24,32 @@
   </section>
   <!--================Hero Banner end =================-->
 
+  <!--================Популярное =================-->
+  <section class="container mb-5">
+    <div class="row">
+      {% for post in most_popular_posts %}
+        <div class="col-md-4 mb-4 d-flex justify-content-center">
+          <div class="text-center" style="max-width: 350px;">
+            <a href="{% url 'post_detail' post.slug %}">
+              {% if post.image_url %}
+                <img class="img-fluid mb-3" src="{% static post.image_url %}" alt="{{ post.title }}">
+              {% else %}
+                <img class="img-fluid mb-3" src="{% static 'media/banner/blog.png' %}" alt="default image">
+              {% endif %}
+            </a>
+            <h6 style="font-weight: 600;">
+              <a href="{% url 'post_detail' post.slug %}" style="color: inherit;">{{ post.title }}</a>
+            </h6>
+            <p class="text-muted mb-0">{{ post.published_at|date:"F d, Y, g:i a" }}</p>
+          </div>
+        </div>
+      {% empty %}
+        <p class="text-center">Нет популярных постов.</p>
+      {% endfor %}
+    </div>
+  </section>
+  <!--================End Популярное =================-->
+
   <!--================ Start Blog Post Area =================-->
   <section class="blog-post-area section-margin mt-4">
     <div class="container">
@@ -35,7 +61,7 @@
                 {% if post.image_url %}
                   <img class="img-fluid" src="{% static post.image_url %}" alt="{{ post.title }}">
                 {% else %}
-                  <img class="img-fluid" src="{% static 'img/banner/blog.png' %}" alt="default image">
+                  <img class="img-fluid" src="{% static 'media/banner/blog.png' %}" alt="default image">
                 {% endif %}
                 <ul class="thumb-info" style="max-width: 550px;">
                   <li><i class="ti-user"></i> {{ post.author }}</li>
@@ -73,31 +99,6 @@
         <!-- САЙДБАР -->
         <div class="col-lg-4 sidebar-widgets">
           <div class="widget-wrap">
-            <!-- ПОПУЛЯРНЫЕ ПОСТЫ -->
-            <div class="single-sidebar-widget popular-post-widget">
-              <h4 class="single-sidebar-widget__title">Популярное</h4>
-              {% for post in most_popular_posts %}
-                <div class="popular-post-list">
-                  <div class="thumb">
-                    {% if post.image_url %}
-                      <img class="img-fluid" src="{% static post.image_url %}" alt="{{ post.title }}">
-                    {% else %}
-                      <img class="img-fluid" src="{% static 'img/banner/blog.png' %}" alt="default image">
-                    {% endif %}
-                  </div>
-                  <div class="details">
-                    <a href="{% url 'post_detail' post.slug %}">
-                      <h6>{{ post.title }}</h6>
-                    </a>
-                    <p>{{ post.published_at|date:"M d, Y" }} • {{ post.comments_amount }} комм.</p>
-                  </div>
-                </div>
-                <br>
-              {% empty %}
-                <p>Нет популярных постов.</p>
-              {% endfor %}
-            </div>
-
             <!-- РАССЫЛКА -->
             <div class="single-sidebar-widget newsletter-widget">
               <h4 class="single-sidebar-widget__title">Newsletter</h4>
@@ -109,6 +110,7 @@
               <button class="bbtns d-block mt-20 w-100">Subscribe</button>
             </div>
 
+            <!-- РЕКЛАМА -->
             <div class="single-sidebar-widget post-category-widget">
               <h4 class="single-sidebar-widget" style="height:200px;">Здесь будет реклама</h4>
             </div>
