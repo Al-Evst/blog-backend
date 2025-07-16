@@ -23,7 +23,7 @@
     </div>
   </section>
 
-  <!-- Популярное -->
+  <!-- Most Popular -->
   <section class="container mb-5">
     <div class="row">
       {% for post in most_popular_posts %}
@@ -48,7 +48,7 @@
     </div>
   </section>
 
-  <!-- Свежие посты -->
+  <!-- Fresh Posts -->
   <section class="blog-post-area section-margin mt-4">
     <div class="container">
       <div class="row">
@@ -79,31 +79,15 @@
           {% empty %}
             <p>Нет свежих постов.</p>
           {% endfor %}
-
-          <!-- Пагинация (пример) -->
-          <div class="row">
-            <div class="col-lg-12">
-              <nav class="blog-pagination justify-content-center d-flex">
-                <ul class="pagination">
-                  <li class="page-item"><a href="#" class="page-link"><i class="ti-angle-left"></i></a></li>
-                  <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                  <li class="page-item"><a href="#" class="page-link">2</a></li>
-                  <li class="page-item"><a href="#" class="page-link"><i class="ti-angle-right"></i></a></li>
-                </ul>
-              </nav>
-            </div>
-          </div>
         </div>
 
-        <!-- Сайдбар -->
+        <!-- Sidebar -->
         <div class="col-lg-4 sidebar-widgets">
           <div class="widget-wrap">
             <div class="single-sidebar-widget newsletter-widget">
               <h4 class="single-sidebar-widget__title">Newsletter</h4>
               <div class="form-group mt-30">
-                <div class="col-autos">
-                  <input type="text" class="form-control" placeholder="Enter email">
-                </div>
+                <input type="text" class="form-control" placeholder="Enter email">
               </div>
               <button class="bbtns d-block mt-20 w-100">Subscribe</button>
             </div>
