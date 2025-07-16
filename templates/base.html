@@ -1,69 +1,133 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>{% block title %}Sensive Blog{% endblock %}</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{% block title %}Sensive Blog{% endblock %}</title>
 
-  <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/png" />
-  <link rel="stylesheet" href="{% static 'styles.min.css' %}" />
-</head>
-<body>
+    <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/png" />
+    <link rel="stylesheet" href="{% static 'styles.min.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  </head>
+  <body>
 
-  <!-- Header -->
-  <header class="header_area">
-    <div class="main_menu">
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container box_1620">
-          <a class="navbar-brand logo_h" href="{% url 'index' %}">
-            <img src="{% static 'img/logo.png' %}" alt="logo" />
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+    <!-- Header -->
+    <header class="header_area">
+      <div class="main_menu">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container box_1620">
+            <a class="navbar-brand logo_h" href="{% url 'index' %}">
+              <img src="{% static 'img/logo.png' %}" alt="logo" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
 
-          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-            <ul class="nav navbar-nav menu_nav justify-content-center">
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'index' %}" style="color: #3a414e;">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'contact' %}" style="color: #3a414e;">Contact</a>
-              </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right navbar-social">
-              <li><a href="#"><i class="ti-facebook"></i></a></li>
-              <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-              <li><a href="#"><i class="ti-instagram"></i></a></li>
-              <li><a href="#"><i class="ti-skype"></i></a></li>
-            </ul>
+            <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+              <ul class="nav navbar-nav menu_nav justify-content-center">
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'index' %}" style="color: #3a414e;">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'contact' %}" style="color: #3a414e;">Contact</a>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right navbar-social">
+                <li><a href="#"><i class="ti-facebook"></i></a></li>
+                <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
+                <li><a href="#"><i class="ti-instagram"></i></a></li>
+                <li><a href="#"><i class="ti-skype"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    {% block content %}
+    {% endblock %}
+
+    <!-- Footer -->
+    <footer class="footer-area section-padding">
+      <div class="container">
+        <div class="row">
+          <!-- About -->
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="single-footer-widget">
+              <h6>About Us</h6>
+              <p>
+                Welcome to our blog where we share stories, tutorials, and inspiration.
+                Stay with us and explore amazing things.
+              </p>
+            </div>
+          </div>
+
+          <!-- Newsletter -->
+          <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="single-footer-widget">
+              <h6>Newsletter</h6>
+              <p>Subscribe to get the latest updates</p>
+              <div id="mc_embed_signup">
+                <form target="_blank" novalidate="true" action="#" method="get" class="form-inline">
+                  <input class="form-control" name="EMAIL" placeholder="Enter Email" required type="email" />
+                  <button class="click-btn btn btn-default">
+                    <i class="ti-arrow-right"></i>
+                  </button>
+                  <div style="position: absolute; left: -5000px;">
+                    <input name="b_fake_email" tabindex="-1" value="" type="text" />
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="col-lg-2 col-md-6 col-sm-6">
+            <div class="single-footer-widget">
+              <h6>Navigation</h6>
+              <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Social -->
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="single-footer-widget">
+              <h6>Follow Us</h6>
+              <p>Let’s connect on social media</p>
+              <div class="footer-social d-flex align-items-center">
+                <a href="#"><i class="ti-facebook"></i></a>
+                <a href="#"><i class="ti-twitter-alt"></i></a>
+                <a href="#"><i class="ti-instagram"></i></a>
+                <a href="#"><i class="ti-skype"></i></a>
+              </div>
+            </div>
           </div>
         </div>
-      </nav>
-    </div>
-  </header>
 
-  <!-- Main Content -->
-  {% block content %}{% endblock %}
-
-  <!-- Footer -->
-  <footer class="footer-area section-padding">
-    <div class="container">
-      <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
-        <p class="footer-text m-0">
-          &copy;<script>document.write(new Date().getFullYear());</script>
-          All rights reserved | This template is made with <i class="fa fa-heart"></i> by
-          <a href="https://colorlib.com" target="_blank">Colorlib</a>
-        </p>
+        <!-- Copyright -->
+        <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap mt-5">
+          <p class="footer-text m-0">
+            &copy;<script>document.write(new Date().getFullYear());</script>
+            All rights reserved | This template is made with
+            <i class="fa fa-heart" aria-hidden="true"></i> by
+            <a href="https://colorlib.com" target="_blank">Colorlib</a>
+          </p>
+        </div>
       </div>
-    </div>
-  </footer>
+    </footer>
 
-  <script src="{% static 'scripts.js' %}"></script>
-</body>
+    <script src="{% static 'scripts.js' %}"></script>
+  </body>
 </html>
