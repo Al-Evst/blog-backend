@@ -9,7 +9,7 @@
   <section class="mb-30px">
     <div class="container">
       <div class="hero-banner"
-           style="background-image: url('{% static 'media/banner/hero-banner.png' %}');
+           style="background-image: url('{% static 'img/banner/hero-banner.png' %}');
                   background-size: cover;
                   background-position: center;
                   background-repeat: no-repeat;
@@ -34,7 +34,7 @@
               {% if post.image_url %}
                 <img class="img-fluid mb-3" src="{% static post.image_url %}" alt="{{ post.title }}">
               {% else %}
-                <img class="img-fluid mb-3" src="{% static 'media/banner/blog.png' %}" alt="default image">
+                <img class="img-fluid mb-3" src="{% static 'img/banner/blog.png' %}" alt="default image">
               {% endif %}
             </a>
             <h6 style="font-weight: 600;">
@@ -61,7 +61,7 @@
                 {% if post.image_url %}
                   <img class="img-fluid" src="{% static post.image_url %}" alt="{{ post.title }}">
                 {% else %}
-                  <img class="img-fluid" src="{% static 'media/banner/blog.png' %}" alt="default image">
+                  <img class="img-fluid" src="{% static 'img/banner/blog.png' %}" alt="default image">
                 {% endif %}
                 <ul class="thumb-info" style="max-width: 550px;">
                   <li><i class="ti-user"></i> {{ post.author }}</li>
