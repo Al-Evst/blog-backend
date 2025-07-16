@@ -4,7 +4,6 @@
 {% block title %}{{ post.title }} — Sensive Blog{% endblock %}
 
 {% block content %}
-<!-- Hero Banner -->
 <section class="mb-30px">
   <div class="container">
     <div class="hero-banner"
@@ -26,14 +25,13 @@
   </div>
 </section>
 
-<!-- Контент поста -->
 <section class="blog-post-area section-margin">
   <div class="container">
     <div class="row">
       <div class="col-lg-8">
         <div class="main_blog_details">
-          {% if post.image_url %}
-            <img class="img-fluid" src="{% static post.image_url %}" alt="{{ post.title }}">
+          {% if post.image %}
+            <img class="img-fluid" src="{{ post.image.url }}" alt="{{ post.title }}">
           {% else %}
             <img class="img-fluid" src="{% static 'img/banner/blog.png' %}" alt="default image">
           {% endif %}
@@ -83,11 +81,13 @@
                 </div>
               </div>
             </div>
+          {% empty %}
+            <p>Пока нет комментариев.</p>
           {% endfor %}
         </div>
       </div>
 
-      <!-- Sidebar -->
+      <!-- Сайдбар -->
       <div class="col-lg-4 sidebar-widgets">
         <div class="widget-wrap">
           <div class="single-sidebar-widget newsletter-widget">

@@ -4,7 +4,6 @@
 {% block title %}Sensive Blog - Contact{% endblock %}
 
 {% block content %}
-<!--================ Hero sm banner start =================-->
 <section class="mb-30px">
   <div class="container">
     <div class="hero-banner hero-banner--sm"
@@ -23,18 +22,14 @@
     </div>
   </div>
 </section>
-<!--================ Hero sm banner end =================-->
 
-<!--================ Contact section start =================-->
 <section class="section-margin--small section-margin">
   <div class="container">
-    <!-- Карта -->
     <div class="d-none d-sm-block mb-5 pb-4">
       {{ html_map|safe }}
     </div>
 
     <div class="row">
-      <!-- Контактная информация -->
       <div class="col-md-4 col-lg-3 mb-4 mb-md-0">
         <div class="media contact-info">
           <span class="contact-info__icon"><i class="ti-home"></i></span>
@@ -59,7 +54,6 @@
         </div>
       </div>
 
-      <!-- Форма обратной связи -->
       <div class="col-md-8 col-lg-9">
         <form action="." class="form-contact contact_form" method="post" id="contactForm" novalidate="novalidate">
           {% csrf_token %}
@@ -89,5 +83,4 @@
     </div>
   </div>
 </section>
-<!--================ Contact section end =================-->
 {% endblock %}
